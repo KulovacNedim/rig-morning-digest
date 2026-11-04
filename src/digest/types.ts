@@ -23,7 +23,5 @@ export type NightDigest = { night: string; rows: DigestRow[]; badLines: number }
 // An empty file is { rows: [], badLines: 0 }: the page says "nothing ran".
 export type ReadNight = (runsDir: string, night: string) => NightDigest | null;
 
-// Stub until issue #1 lands the reader; then this becomes a re-export of the real one.
-export const readNight: ReadNight = () => {
-  throw new Error('readNight: not implemented yet (issue #1)');
-};
+// The real reader (issue #1), re-exported so callers keep importing from this file.
+export { readNight } from './read.js';
